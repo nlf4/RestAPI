@@ -7,12 +7,15 @@ $_root_folder = $config->getRootFolder();
 
 //load Models
 require_once $_root_folder . "/Model/AbstractItem.php";
+require_once $_root_folder . "/Model/WeatherResult.php";
 require_once $_root_folder . "/Model/City.php";
 require_once $_root_folder . "/Model/Flower.php";
 require_once $_root_folder . "/Model/User.php";
 
 //load Services
 require_once $_root_folder . "/Service/Authentication.php";
+
+require_once $_root_folder . "/Service/OpenWeatherMapService.php";
 
 require_once $_root_folder . "/Service/DataLoader.php";
 require_once $_root_folder . "/Service/CityLoader.php";

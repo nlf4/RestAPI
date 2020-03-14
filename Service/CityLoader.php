@@ -3,10 +3,16 @@ class CityLoader implements DataLoader
 {
     private $dbinterface; //werkt met PDO_Manager, maar kan ook met MYSQLI_Manager werken
     private $items;          //array of items (City objects)
+    private $OWMS;
 
     public function __construct( DBInterface $DBI )
     {
         $this->dbinterface = $DBI;
+    }
+
+    public function injectOpenWeatherMapService( OpenWeatherMapService $OWMS )
+    {
+        $this->OWMS = $OWMS;
     }
 
     public function MakeSQL( $id = null )
@@ -42,6 +48,9 @@ class CityLoader implements DataLoader
             $city->setNumberOfInhabitants( $row['cit_inhabitants'] );
             $city->setCoordinateX( $row['cit_coordinate_x'] );
             $city->setCoordinateY( $row['cit_coordinate_y'] );
+
+            //find and set weather
+            $city->setWeather( $this->OWMS->getWeather( $city->getName() ) );
 
             $this->items[] = $city;
         }

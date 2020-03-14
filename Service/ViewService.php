@@ -108,6 +108,10 @@ class ViewService
             $content = str_replace("@@cit_coordinate_y@@", $city->getCoordinateY(), $content);
             $content = str_replace("@@cit_coordinates@@", $city->Coordinates(), $content);
 
+            //add weather
+            $content = str_replace("@@cit_weather_desc@@", $city->getWeather()->getDesc(), $content);
+            $content = str_replace("@@cit_weather_temp@@", $city->getWeather()->getTemp(), $content);
+
             $returnval .= $content;
         }
 

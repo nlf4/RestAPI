@@ -53,5 +53,8 @@ class Flower extends AbstractItem
         $this->months = $months;
     }
 
-
+    public function __toString()
+    {
+        return $this->getName() . " - " . $this->getColor();
+    }
 }

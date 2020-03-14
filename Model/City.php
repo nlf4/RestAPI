@@ -6,6 +6,8 @@ class City extends AbstractItem
     private $coordinate_x;
     private $coordinate_y;
 
+    private $weather;
+
     /**
      * @return mixed
      */
@@ -75,4 +77,21 @@ class City extends AbstractItem
     {
         return $this->coordinate_x . " / " . $this->coordinate_y;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getWeather()
+    {
+        return $this->weather;
+    }
+
+    /**
+     * @param mixed $weather
+     */
+    public function setWeather($weather)
+    {
+        $this->weather = $weather;
+    }
+
 }

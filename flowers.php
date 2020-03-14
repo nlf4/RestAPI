@@ -31,8 +31,11 @@ $MS->ShowMessages();
         //example looping over flowers again without reloading
         foreach( $Container->getFlowerLoader()->getItems() as $flower )
         {
+            print $flower . "<br>";
+            /*
             print $flower->getName() . "<br>";
             print $flower->getColor() . "<br>";
+            */
         }
         ?>
 

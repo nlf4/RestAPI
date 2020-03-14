@@ -15,6 +15,8 @@ class Container
     private $uploadService;
     private $authentication;
 
+    private $OWM_Service;
+
     /**
      * @param Config $config
      */
@@ -38,6 +40,18 @@ class Container
         }
 
         return $this->pdo;
+    }
+
+    /**
+     * @return OpenWeatherMapService
+     */
+    public function getOWMService()
+    {
+        if ($this->OWM_Service === null) {
+            $this->OWM_Service = new OpenWeatherMapService();
+        }
+
+        return $this->OWM_Service;
     }
 
     /**
@@ -95,6 +109,7 @@ class Container
     {
         if ( $this->cityLoader === null ){
             $this->cityLoader = new CityLoader( $this->getDBM() );
+            $this->cityLoader->injectOpenWeatherMapService( $this->getOWMService() );
         }
         return $this->cityLoader;
     }

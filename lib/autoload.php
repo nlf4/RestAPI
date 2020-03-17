@@ -5,6 +5,7 @@ $config = new Config( $path = "/RestAPI" );
 $_application_folder = $config->getApplicationFolder();
 $_root_folder = $config->getRootFolder();
 
+
 //load API's
 require_once  $_root_folder . "/api/WeatherApi.php";
 

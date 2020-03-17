@@ -1,7 +1,7 @@
 <?php
 require_once 'lib/autoload.php';
 $WeatherApi = $Container->getWeatherApi();
-$uri_count = 5;
+$uri_count = 4;
 
 // Get URI parts
 $uri_parts = explode( "/", $_SERVER["REQUEST_URI"]);
@@ -17,7 +17,8 @@ $penultimate_part = $uri_parts[ $count - 2 ];
 if ( $count == $uri_count AND $last_part == 'taak' ) {
     switch( $_SERVER['REQUEST_METHOD'] ) {
         case 'GET':
-            $WeatherApi->read();
+            header("content-type: application/json");
+            echo $WeatherApi->read();
             return true;
         case 'POST':
             $WeatherApi->create();
@@ -43,4 +44,6 @@ if ( $count == $uri_count + 1 AND $penultimate_part == "taak" ){
             echo 'Unvalid request method';
             return false;
     }
+
+
 }

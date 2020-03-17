@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Groepswerken/RestAPI/Model/Config.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/RestAPI/Model/Config.php";
 
-$config = new Config( $path = "/Groepswerken/RestAPI" );
+$config = new Config( $path = "/RestAPI" );
 $_application_folder = $config->getApplicationFolder();
 $_root_folder = $config->getRootFolder();
 

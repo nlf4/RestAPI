@@ -15,6 +15,8 @@ class Container
     private $uploadService;
     private $authentication;
 
+    private $WeatherApi;
+
     private $OWM_Service;
 
     /**
@@ -157,4 +159,17 @@ class Container
         }
         return $this->authentication;
     }
+
+    /**
+     * @return WeatherApi
+     */
+    public function getWeatherApi()
+    {
+        if ( $this->WeatherApi === null ){
+            $this->WeatherApi = new WeatherApi( $this->getPDO() );
+        }
+        return $this->WeatherApi;
+    }
+
+
 }

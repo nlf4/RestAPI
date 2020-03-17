@@ -8,6 +8,7 @@ $_root_folder = $config->getRootFolder();
 //load API's
 require_once  $_root_folder . "/api/WeatherApi.php";
 
+
 //load Models
 require_once $_root_folder . "/Model/AbstractItem.php";
 require_once $_root_folder . "/Model/WeatherResult.php";

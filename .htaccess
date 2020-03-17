@@ -1,14 +1,14 @@
 # Turn rewriting on
 Options +FollowSymLinks
-RewriteEngine Off
-#RewriteEngine On
+#RewriteEngine Off
+RewriteEngine On
 
 # Basic Authentication mogelijk maken
 RewriteCond %{HTTP:Authorization} ^(.+)$
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
 # Exclude Redirects for some files or file extensions
-RewriteCond %{REQUEST_URI} !=/index.php
+RewriteCond %{REQUEST_URI} !=/api.php
 RewriteCond %{REQUEST_URI} !.*\.png$ [NC]
 RewriteCond %{REQUEST_URI} !.*\.jpg$ [NC]
 RewriteCond %{REQUEST_URI} !.*\.css$ [NC]
@@ -19,4 +19,4 @@ RewriteCond %{REQUEST_URI} !.*\.js$ [NC]
 RewriteCond %{QUERY_STRING} !.*no_re_dir.*$ [NC]
 
 # Redirect everything else to index.php
-RewriteRule .* index.php [L]
+RewriteRule .* api.php [L]

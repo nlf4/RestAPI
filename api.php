@@ -1,7 +1,8 @@
 <?php
 require_once 'lib/autoload.php';
+require_once  'access_control.php';
 $WeatherApi = $Container->getWeatherApi();
-$uri_count = 5;
+$uri_count = 4;
 
 // Get URI parts
 $uri_parts = explode( "/", $_SERVER["REQUEST_URI"]);
@@ -14,7 +15,7 @@ $last_part = end( $uri_parts );
 $penultimate_part = $uri_parts[ $count - 2 ];
 
 // Execute function based on URI
-if ( $count == $uri_count AND $last_part == 'taak' ) {
+if ( $count == $uri_count AND $last_part == 'taken' ) {
     switch( $_SERVER['REQUEST_METHOD'] ) {
         case 'GET':
             $WeatherApi->read();

@@ -1,8 +1,8 @@
 <?php
-require_once 'lib/autoload.php';
+require_once '../lib/autoload.php';
 require_once  'access_control.php';
 $WeatherApi = $Container->getWeatherApi();
-$uri_count = 4;
+$uri_count = 5;
 
 // Get URI parts
 $uri_parts = explode( "/", $_SERVER["REQUEST_URI"]);

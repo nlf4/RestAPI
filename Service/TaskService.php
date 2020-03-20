@@ -1,7 +1,7 @@
 <?php
 
 
-class WeatherApi
+class TaskService
 {
     private $pdo;
 

@@ -16,7 +16,7 @@ require_once $_root_folder . "/Model/User.php";
 require_once $_root_folder . "/Service/Authentication.php";
 
 require_once $_root_folder . "/Service/OpenWeatherMapService.php";
-require_once $_root_folder . "/Service/WeatherApi.php";
+require_once $_root_folder . "/Service/TaskService.php";
 
 require_once $_root_folder . "/Service/DataLoader.php";
 require_once $_root_folder . "/Service/CityLoader.php";

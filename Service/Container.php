@@ -15,7 +15,7 @@ class Container
     private $uploadService;
     private $authentication;
 
-    private $WeatherApi;
+    private $TaskService;
 
     private $OWM_Service;
 
@@ -161,14 +161,14 @@ class Container
     }
 
     /**
-     * @return WeatherApi
+     * @return TaskService
      */
-    public function getWeatherApi()
+    public function getTaskService()
     {
-        if ( $this->WeatherApi === null ){
-            $this->WeatherApi = new WeatherApi( $this->getPDO() );
+        if ( $this->TaskService === null ){
+            $this->TaskService = new TaskService( $this->getPDO() );
         }
-        return $this->WeatherApi;
+        return $this->TaskService;
     }
 
 

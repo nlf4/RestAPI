@@ -1,8 +1,8 @@
 <?php
-require_once 'lib/autoload.php';
+require_once '../lib/autoload.php';
 require_once  'access_control.php';
-$WeatherApi = $Container->getWeatherApi();
-$uri_count = 4;
+$TaskService = $Container->getTaskService();
+$uri_count = 5;
 
 // Get URI parts
 $uri_parts = explode( "/", $_SERVER["REQUEST_URI"]);
@@ -18,10 +18,10 @@ $penultimate_part = $uri_parts[ $count - 2 ];
 if ( $count == $uri_count AND $last_part == 'taken' ) {
     switch( $_SERVER['REQUEST_METHOD'] ) {
         case 'GET':
-            $WeatherApi->read();
+            $TaskService->read();
             return true;
         case 'POST':
-            $WeatherApi->create();
+            $TaskService->create();
             return true;
         default:
             echo 'Unvalid request method';
@@ -32,13 +32,13 @@ if ( $count == $uri_count AND $last_part == 'taken' ) {
 if ( $count == $uri_count + 1 AND $penultimate_part == "taak" ){
     switch( $_SERVER['REQUEST_METHOD'] ) {
         case 'GET':
-            $WeatherApi->read_single( $last_part );
+            $TaskService->read_single( $last_part );
             return true;
         case 'PUT':
-            $WeatherApi->update( $last_part );
+            $TaskService->update( $last_part );
             return true;
         case 'DELETE':
-            $WeatherApi->delete( $last_part );
+            $TaskService->delete( $last_part );
             return true;
         default:
             echo 'Unvalid request method';

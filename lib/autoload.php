@@ -5,9 +5,6 @@ $config = new Config( $path = "/Groepswerken/RestAPI" );
 $_application_folder = $config->getApplicationFolder();
 $_root_folder = $config->getRootFolder();
 
-//load API's
-require_once  $_root_folder . "/api/WeatherApi.php";
-
 //load Models
 require_once $_root_folder . "/Model/AbstractItem.php";
 require_once $_root_folder . "/Model/WeatherResult.php";
@@ -19,6 +16,7 @@ require_once $_root_folder . "/Model/User.php";
 require_once $_root_folder . "/Service/Authentication.php";
 
 require_once $_root_folder . "/Service/OpenWeatherMapService.php";
+require_once $_root_folder . "/Service/TaskService.php";
 
 require_once $_root_folder . "/Service/DataLoader.php";
 require_once $_root_folder . "/Service/CityLoader.php";
